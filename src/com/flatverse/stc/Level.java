@@ -1,17 +1,20 @@
 package com.flatverse.stc;
 
-import java.util.ArrayList;
+import java.util.List;
+
+import com.flatverse.stc.content.LevelInitializer;
+import com.flatverse.stc.gameobject.GameObject;
 
 import android.graphics.Canvas;
 
 public class Level {
-	public ArrayList<GameObject> objs;
+	public List<GameObject> objs;
 	public int bgColor;
 	
 	public Camera camera;
 	
-	public Level(GameView gameView) {
-		objs = new ArrayList<GameObject>();
+	public Level(GameView gameView, LevelInitializer levelInit) {
+		objs = levelInit.getGameObjects();
 		
 		bgColor = 0xff00000f;
 		
@@ -19,7 +22,8 @@ public class Level {
 		gameView.setOnTouchListener(camera);
 	}
 	
-	public void update() {
+	public void update(Canvas canvas) {
+		camera.update(canvas);
 		for(GameObject obj : objs) {
 			obj.update();
 		}
@@ -29,7 +33,7 @@ public class Level {
 		canvas.drawColor(bgColor);
 		
 		for(GameObject obj : objs) {
-			obj.draw(canvas, camera);
+			obj.draw(canvas);
 		}
 	}
 }
