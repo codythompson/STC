@@ -15,6 +15,11 @@ public class PointUtils {
 		//return val;
 	}
 	
+	public static void add(PointF val, PointF addToVal, PointF result) {
+		result.x = val.x + addToVal.x;
+		result.y = val.y + addToVal.y;
+	}
+	
 	/**
 	 * val = val - subFromVal
 	 * @param val - gets modified!!! set to val - subFromVal
@@ -24,6 +29,11 @@ public class PointUtils {
 		val.x = val.x - subFromVal.x;
 		val.y = val.y - subFromVal.y;
 		//return val;
+	}
+	
+	public static void sub(PointF val, PointF subFromVal, PointF result) {
+		result.x = val.x - subFromVal.x;
+		result.y = val.y - subFromVal.y;
 	}
 	
 	/**
@@ -37,6 +47,26 @@ public class PointUtils {
 		//return val;
 	}
 	
+	public static void mult(PointF val, float multValBy, PointF result) {
+		result.x = val.x * multValBy;
+		result.y = val.y * multValBy;
+	}
+	
+	/**
+	 * val = val / divValBy
+	 * @param val - gets MODIFIED!!! val set to val / divValBy
+	 * @param divValBy
+	 */
+	public static void divEquals(PointF val, float divValBy) {
+		val.x = val.x / divValBy;
+		val.y = val.y / divValBy;
+	}
+	
+	public static void div(PointF val, float divValBy, PointF result) {
+		result.x = val.x / divValBy;
+		result.y = val.y / divValBy;
+	}
+	
 	/**
 	 * ref = val
 	 * @param ref - gets MODIFED!!!
@@ -45,5 +75,13 @@ public class PointUtils {
 	public static void setEqual(PointF ref, PointF val) {
 		ref.x = val.x;
 		ref.y = val.y;
+	}
+	
+	public static boolean areEqual(PointF a, PointF b) {
+		return a.x == b.x && a.y == b.y;
+	}
+	
+	public static String toString(PointF val) {
+		return "(" + val.x + ", " + val.y + ")";
 	}
 }

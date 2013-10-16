@@ -33,6 +33,8 @@ public class LineSegmentsDrawable extends MultiPointDrawable {
 		for (int i = 1; i < points.size(); i++) {
 			PointUtils.setEqual(start, points.get(i - 1));
 			PointUtils.setEqual(end, points.get(i));
+			PointUtils.addEquals(start, offset);
+			PointUtils.addEquals(end, offset);
 			canvas.drawLine(start.x, start.y, end.x, end.y, localPaint);
 		}
 	}

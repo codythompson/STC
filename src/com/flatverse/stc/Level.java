@@ -14,7 +14,7 @@ public class Level {
 	public Camera camera;
 	
 	public Level(GameView gameView, LevelInitializer levelInit) {
-		objs = levelInit.getGameObjects();
+		objs = levelInit.getGameObjects(gameView.getContext());
 		
 		bgColor = 0xff00000f;
 		

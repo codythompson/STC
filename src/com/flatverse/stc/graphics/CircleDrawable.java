@@ -22,7 +22,7 @@ public class CircleDrawable extends SinglePointDrawable {
 
 	@Override
 	public void draw(Canvas canvas, PointF location) {
-		canvas.drawCircle(location.x, location.y, radius, localPaint);
+		canvas.drawCircle(location.x + offset.x, location.y + offset.y, radius, localPaint);
 	}
 
 }
